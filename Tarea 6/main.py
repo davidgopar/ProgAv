@@ -7,7 +7,7 @@ Primeramente le pide digitar dos números y si suman 20
 Adivine el siguiente número a salir
 """
 
-# A continuación definimos ecepciones
+# A continuación definimos excepciones
 class Error(Exception) :
     pass
 
@@ -20,6 +20,16 @@ class NumerosIncorrectos(Error) :
 class CharIncorrecto(Error) :
     """Los caracteres son incorrectos"""
     pass
+
+class IncorrectoQ(Exception):
+    """
+    Nos dice si acertamos en la cantidad de preguntas
+    """
+
+    def __init__(self, preguntas,message="No acertaste la cantidad de preguntas"):
+        self.preguntas=preguntas
+        self.message = message
+        super().__init__(self.message)
 
 print("Adivine que quiero...")
 while True :
@@ -66,4 +76,8 @@ while True:
     except CharIncorrecto:
         print("Ese no es el caracter")
 
-print("\nAdivinaste todo. Felicidades")
+preguntas = int(input("¿Cua'ntas adivinanzas eran?: "))
+if preguntas != 3:
+    raise IncorrectoQ(preguntas)
+
+print("Adivinaste todo. Felicidades")
