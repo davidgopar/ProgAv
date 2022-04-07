@@ -1,3 +1,5 @@
-# pythonProject5
-prueba
+# Progra-Anvanzada CINVESTAV
+
 David Gopar Morales
+
+MATEMATICAS
